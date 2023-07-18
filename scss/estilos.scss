@@ -1,0 +1,223 @@
+@use 'reset';
+@use 'header';
+
+
+$colorPrimario: (#000);
+$colorSecundario: (#bf930d);
+$colorTerciario: (#fff);
+
+.main {
+    border-top: 2px solid $colorSecundario;
+
+
+    .leyenda {
+        display: grid;
+        place-items: center;
+        height: 10%;
+        width: 100%;
+        font-family: 'Sofia', cursive;
+        font-size: 25px;
+        font-weight: 100;
+        color: $colorTerciario;
+        border-bottom: 2px solid $colorSecundario;
+    }
+
+    .seccion {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+
+        
+        width: 100%;
+        height: 90%;
+
+
+
+        .seccion__in {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            
+
+            width: 45%;
+            height: 70%;
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: 1px solid $colorSecundario;
+
+            .seccion__in--titulo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                text-transform: uppercase;
+                text-align: center;
+                font-family: 'Agdasima', sans-serif;
+                font-size: 30px;
+
+                width: 100%;
+                height: 10%;
+
+
+                background-color: $colorTerciario;
+                opacity: 0.6;
+                
+            }
+
+
+            .seccion__productos {
+
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                
+
+                height: 85%;
+
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border-radius: 10px;
+                    border: 1px solid $colorSecundario;
+
+                    height: 60%;
+                    width: 20%;
+                    background-color: $colorTerciario;
+                    opacity: 0.8;
+
+                    transition: 1s;
+
+                    &:hover {
+                        height: 73%;
+                        width: 30%;
+
+                        transition-property: width;
+                        transition-property: height;
+                        transition-delay: 0.2s;
+                        transition-duration: 1s;
+
+                        .card__img {
+                            height: 40%;
+
+                            transition: 2s;
+                        }
+
+                        .card__info {
+                            height: 60%;
+
+                            transition: 2s;
+                        }
+
+                        h3 {
+                            font-size: 25px;
+
+                            transition: 2s;
+                        }
+
+                        p {
+                            font-size: 20px;
+
+                            transition: 2s;
+                        }
+                    }
+
+                    .card__img {
+                        height: 30%;
+                        width: 100%;
+
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                    .card__info {
+                        text-align: center;
+                        height: 70%;
+                        width: 100%;
+                    }
+
+                    .card__img--1 {
+                        background-image: url(/img/cafe-espresso.jpg);
+                    }
+
+                    .card__img--2 {
+                        background-image: url(/img/Café-americano.webp);
+                    }
+
+                    .card__img--3 {
+                        background-image: url(/img/capuccino.jpg);
+                    }
+
+                    .card__img--1__b {
+                        background-image: url(/img/cumbal.jpg);
+                    }
+
+                    .card__img--2__b {
+                        background-image: url(/img/cinco\ hispanos.jpg);
+                    }
+
+                    .card__img--3__b {
+                        background-image: url(/img/amanecer\ \(1\).jpg);
+                    }
+                }
+            }
+
+            .seccion__in--catalogo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                height: 5%;
+                width: 100%;
+
+                text-align: center;
+                text-transform: uppercase;
+                background-color: $colorTerciario;
+                opacity: 0.7;
+                transition: 1s;
+
+                &:hover {
+                    box-sizing: border-box;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    border-top: 1px solid $colorSecundario;
+
+                    transition: 1s;
+
+                    a {
+                        color: $colorSecundario;
+                        
+
+                        transition: 1s;
+                        
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+
+                    color: $colorPrimario;
+                }
+
+            }
+        }
+
+        .seccion__in--tradicional {
+            background: linear-gradient(to left, rgba(43, 43, 43, 0.8),rgba(43, 43, 43, 0.8)), url(/img/cafetera.jpg);
+        }
+
+        .seccion__in--grano {
+            background-image: linear-gradient(to left, rgba(43, 43, 43, 0.8),rgba(43, 43, 43, 0.8)), url(/img/cafe-en-grano.webp);
+            
+
+            
+        }
+    }
+}
+

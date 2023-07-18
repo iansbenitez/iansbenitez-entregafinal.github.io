@@ -1,0 +1,27 @@
+$breakpoints: (
+    xs: 480px,
+    sm: 575px,
+    md: 768px,
+    lg: 992px
+);
+
+@mixin media-width ($medida) {
+    @media only screen and (max-width: map-get($breakpoints, $medida)) {
+        @content;
+    }
+}
+
+
+$breakpointheight: (
+    xs: 667px,
+    sm: 720px,
+    md: 810px,
+    lg: 916px
+);
+
+@mixin mediaheight ($medidaheight) {
+    @media only screen and (max-height: map-get($breakpointheight, $medidaheight)){
+        @content;
+    }
+}
+

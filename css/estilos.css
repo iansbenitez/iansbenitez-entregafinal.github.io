@@ -1,0 +1,14 @@
+body {
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.encabezado {
+  height: 100%;
+  background-color: black;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+.encabezado .navbar {
+  background-color: rgb(169, 152, 51);
+}/*# sourceMappingURL=estilos.css.map */

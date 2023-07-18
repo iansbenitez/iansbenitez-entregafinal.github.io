@@ -1,0 +1,357 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000 !important;
+}
+
+.header {
+  width: 100%;
+  height: 100%;
+}
+.header .nav__mobile {
+  background-color: #bf930d;
+  height: 11%;
+  --img1: scale(1);
+  --img2: scale(0);
+}
+.header .nav__mobile:has(.dropdown:target) {
+  --img1: scale(0);
+  --img2: scale(1);
+  --clip: inset(0 0 0 0) ;
+}
+.header .nav__mobile .nav__container {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-areas: "title img";
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.header .nav__mobile .nav__container .nav__title {
+  color: #fff;
+  grid-area: title;
+  font-size: 40px;
+  font-family: "Agdasima", sans-serif;
+}
+.header .nav__mobile .nav__container .nav__title a {
+  color: #000;
+  text-decoration: none;
+}
+.header .nav__mobile .nav__container .nav__menu {
+  grid-area: img;
+  position: relative;
+  z-index: 10;
+  transform: var(--img1);
+  z-index: 30;
+}
+.header .nav__mobile .nav__container .nav__menu .nav__icon {
+  width: 30px;
+  display: block;
+}
+.header .nav__mobile .nav__container .nav__menu--second {
+  transform: var(--img2);
+}
+.header .nav__mobile .nav__container .dropdown {
+  position: absolute;
+  background-color: #bf930d;
+  width: 60%;
+  max-width: 300px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 1em;
+  border-top: 5px solid #000;
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+  overflow-y: auto;
+  -webkit-clip-path: var(--clip, inset(0 0 100% 100%));
+          clip-path: var(--clip, inset(0 0 100% 100%));
+  transition: -webkit-clip-path 1s;
+  transition: clip-path 1s;
+  transition: clip-path 1s, -webkit-clip-path 1s;
+  z-index: 10;
+}
+.header .nav__mobile .nav__container .dropdown .dropdown__list {
+  list-style: none;
+}
+.header .nav__mobile .nav__container .dropdown .dropdown__list .dropdown__link {
+  color: #000;
+  padding: 1em 0.7em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.header .nav__mobile .nav__container .dropdown .dropdown__list .dropdown__link span {
+  padding-left: 0.5rem;
+  text-transform: uppercase;
+}
+.header .caja__trasera {
+  position: relative;
+  margin: 12% auto;
+  width: 60%;
+  height: 400px;
+  background: linear-gradient(0deg, #000, rgb(44, 44, 44));
+  border-radius: 100px 50px;
+}
+.header .caja__trasera .titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 99%;
+  height: 99%;
+}
+.header .caja__trasera .titulo p {
+  font-size: 100px;
+  font-family: "Dancing Script", cursive;
+  color: #bf930d;
+}
+.header .glow::before, .header .glow::after {
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  content: "";
+  background: linear-gradient(45deg, #bf930d, #fff);
+  background-size: 400%;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  z-index: -1;
+  animation: animTest 20s linear infinite;
+  filter: blur(30px);
+}
+@keyframes animTest {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .header .nav {
+    height: 10%;
+  }
+  .header .caja__trasera {
+    margin: 20% auto !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .header .caja__trasera {
+    width: 70%;
+  }
+  .header .caja__trasera p {
+    font-size: 80px !important;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .header .caja__trasera {
+    margin-top: 150px !important;
+  }
+  .header .caja__trasera p {
+    font-size: 70px !important;
+  }
+  .header .glow::after, .header .glow::before {
+    filter: blur(350px);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .header .caja__trasera {
+    margin-top: 150px !important;
+  }
+  .header .caja__trasera p {
+    font-size: 50px !important;
+  }
+  .header .glow::after, .header .glow::before {
+    filter: blur(250px);
+  }
+}
+@media only screen and (max-height: 667px) {
+  .header .nav__title {
+    font-size: 30px !important;
+  }
+  .header .caja__trasera {
+    margin-top: 80px !important;
+  }
+}
+@media only screen and (max-height: 720px) {
+  .header .nav__title {
+    font-size: 30px !important;
+  }
+  .header .caja__trasera {
+    margin-top: 125px !important;
+  }
+}
+@media only screen and (max-height: 810px) {
+  .header .nav__title {
+    font-size: 30px !important;
+  }
+}
+@media only screen and (max-height: 916px) {
+  .header .nav__title {
+    font-size: 30px !important;
+  }
+}
+
+.main {
+  border-top: 2px solid #bf930d;
+}
+.main .leyenda {
+  display: grid;
+  place-items: center;
+  height: 10%;
+  width: 100%;
+  font-family: "Sofia", cursive;
+  font-size: 25px;
+  font-weight: 100;
+  color: #fff;
+  border-bottom: 2px solid #bf930d;
+}
+.main .seccion {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 90%;
+}
+.main .seccion .seccion__in {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 45%;
+  height: 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #bf930d;
+}
+.main .seccion .seccion__in .seccion__in--titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Agdasima", sans-serif;
+  font-size: 30px;
+  width: 100%;
+  height: 10%;
+  background-color: #fff;
+  opacity: 0.6;
+}
+.main .seccion .seccion__in .seccion__productos {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 85%;
+}
+.main .seccion .seccion__in .seccion__productos .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #bf930d;
+  height: 60%;
+  width: 20%;
+  background-color: #fff;
+  opacity: 0.8;
+  transition: 1s;
+}
+.main .seccion .seccion__in .seccion__productos .card:hover {
+  height: 73%;
+  width: 30%;
+  transition-property: width;
+  transition-property: height;
+  transition-delay: 0.2s;
+  transition-duration: 1s;
+}
+.main .seccion .seccion__in .seccion__productos .card:hover .card__img {
+  height: 40%;
+  transition: 2s;
+}
+.main .seccion .seccion__in .seccion__productos .card:hover .card__info {
+  height: 60%;
+  transition: 2s;
+}
+.main .seccion .seccion__in .seccion__productos .card:hover h3 {
+  font-size: 25px;
+  transition: 2s;
+}
+.main .seccion .seccion__in .seccion__productos .card:hover p {
+  font-size: 20px;
+  transition: 2s;
+}
+.main .seccion .seccion__in .seccion__productos .card .card__img {
+  height: 30%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.main .seccion .seccion__in .seccion__productos .card .card__info {
+  text-align: center;
+  height: 70%;
+  width: 100%;
+}
+.main .seccion .seccion__in .seccion__productos .card .card__img--1 {
+  background-image: url(/img/cafe-espresso.jpg);
+}
+.main .seccion .seccion__in .seccion__productos .card .card__img--2 {
+  background-image: url(/img/Café-americano.webp);
+}
+.main .seccion .seccion__in .seccion__productos .card .card__img--3 {
+  background-image: url(/img/capuccino.jpg);
+}
+.main .seccion .seccion__in .seccion__productos .card .card__img--1__b {
+  background-image: url(/img/cumbal.jpg);
+}
+.main .seccion .seccion__in .seccion__productos .card .card__img--2__b {
+  background-image: url(/img/cinco\ hispanos.jpg);
+}
+.main .seccion .seccion__in .seccion__productos .card .card__img--3__b {
+  background-image: url(/img/amanecer\ \(1\).jpg);
+}
+.main .seccion .seccion__in .seccion__in--catalogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5%;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #fff;
+  opacity: 0.7;
+  transition: 1s;
+}
+.main .seccion .seccion__in .seccion__in--catalogo:hover {
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid #bf930d;
+  transition: 1s;
+}
+.main .seccion .seccion__in .seccion__in--catalogo:hover a {
+  color: #bf930d;
+  transition: 1s;
+}
+.main .seccion .seccion__in .seccion__in--catalogo a {
+  text-decoration: none;
+  color: #000;
+}
+.main .seccion .seccion__in--tradicional {
+  background: linear-gradient(to left, rgba(43, 43, 43, 0.8), rgba(43, 43, 43, 0.8)), url(/img/cafetera.jpg);
+}
+.main .seccion .seccion__in--grano {
+  background-image: linear-gradient(to left, rgba(43, 43, 43, 0.8), rgba(43, 43, 43, 0.8)), url(/img/cafe-en-grano.webp);
+}/*# sourceMappingURL=estilos.css.map */

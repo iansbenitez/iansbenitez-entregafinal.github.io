@@ -1,0 +1,294 @@
+@import 'mediaquery';
+@import 'colores';
+
+body {
+    background-color: map-get($colores, colorPrimario) !important;
+}
+
+.header {
+    width: 100%;
+    height: 100%;
+
+    
+    
+//Acá comienza toda la barra navegador//
+    .nav__mobile {
+        background-color: map-get($colores, colorSecundario);
+        height: 11%;
+        
+        
+        
+
+        --img1: scale(1);
+        --img2: scale(0);
+
+
+        &:has( .dropdown:target ) {
+            --img1: scale(0);
+            --img2: scale(1);
+
+           --clip: inset(0 0 0 0)
+        }
+
+        .nav__container {
+            width: 90%;
+            margin: 0 auto;
+            
+            
+            display: grid;
+            grid-template-columns: max-content max-content;
+            grid-template-areas: 'title img';
+            justify-content: space-between;
+            align-items: center;
+
+            overflow: hidden;
+
+            .nav__title {
+                color: map-get($colores,colorTerciario);
+                grid-area: title;
+                font-size: 40px;
+                font-family: 'Agdasima', sans-serif;
+
+                a {
+                    color: map-get($colores, colorPrimario);
+                    text-decoration: none;
+                }
+            }
+
+            .nav__menu {
+                grid-area: img;
+                position: relative;
+                z-index: 10;
+
+                transform: var(--img1);
+                z-index: 30;
+
+                .nav__icon  {
+                    width: 30px;
+                    display: block;
+                    
+                }
+            }
+
+            .nav__menu--second {
+                transform:var(--img2) ;
+                
+            }
+
+            .dropdown {
+                position: absolute;
+                background-color: map-get($colores, colorSecundario);
+                width: 60%;
+                max-width: 300px;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                padding: 1em;
+                border-top: 5px solid map-get($colores, colorPrimario);
+
+                display: grid;
+                align-content: center;
+                gap: 1rem;
+                
+                overflow-y: auto;
+
+                clip-path:var(--clip, inset(0 0 100% 100%)) ;
+                transition: clip-path 1s;
+
+                z-index: 10;
+
+                .dropdown__list {
+                    list-style: none;
+                    
+                    
+
+                    .dropdown__link {
+                        color: map-get($colores, colorPrimario);
+                        padding: 1em .7em;
+                        text-decoration: none;
+
+                        display: flex;
+                        align-items: center;
+                        gap: .6rem;
+
+                        span {
+                            padding-left: .5rem;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+
+            
+        }
+        
+        
+
+        
+    }
+
+    
+
+
+    //Acá inicia la caja contenedora del titulo principal//
+    .caja__trasera {
+        position: relative;
+        margin: 12% auto;
+        width: 60%;
+        height: 400px;
+        background: linear-gradient(0deg, map-get($colores, colorPrimario), rgb(44,44,44));
+        border-radius:100px 50px;
+        
+
+        .titulo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 99%;
+            height: 99%;
+            
+
+            p {
+                font-size: 100px;
+                font-family: 'Dancing Script', cursive;
+                color: map-get($colores, colorSecundario);
+            }
+        }
+    }
+
+    .glow::before, .glow::after {
+        position: absolute;
+        left: -2px;
+        top: -2px;
+        content:'';
+        background: linear-gradient(45deg, map-get($colores, colorSecundario), map-get($colores, colorTerciario));
+
+        background-size: 400%;
+        width: calc(100% + 5px);
+        height: calc(100% + 5px);
+        z-index: -1;
+
+        animation: animTest 20s linear infinite;
+        filter: blur(30px);
+        
+
+        
+
+        
+    }
+
+    @keyframes animTest {
+        0% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 400% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
+    }
+
+//Acá comienza media query x width//
+    
+
+    @include media-width (lg) {
+
+        .nav {
+            height: 10%;
+        }
+
+        .caja__trasera {
+            margin: 20% auto !important;
+        }
+    }
+
+    @include media-width (md) {
+        .caja__trasera {
+            width: 70%;
+
+            p {
+                font-size: 80px !important;
+            }
+        }
+    }
+
+    @include media-width (sm) {
+
+        
+        .caja__trasera {
+            margin-top: 150px !important;
+
+            p {
+                font-size: 70px !important;
+            }
+        }
+
+        .glow::after, .glow::before {
+            filter: blur(350px);
+        }
+    }
+
+    @include media-width (xs) {
+        .caja__trasera {
+            margin-top: 150px !important;
+
+            p {
+                font-size: 50px !important;
+            }
+        }
+
+        .glow::after, .glow::before {
+            filter: blur(250px);
+        }
+    }
+
+    
+
+//Acá empieza media query x height//
+
+    @include mediaheight (xs) {
+        .nav__title {
+            font-size: 30px !important;
+        }
+
+        .caja__trasera {
+            margin-top: 80px !important;
+        }
+    }
+
+    @include mediaheight (sm) {
+        .nav__title {
+            font-size: 30px !important;
+        }
+
+        .caja__trasera {
+            margin-top: 125px !important;
+        }
+    }
+
+    @include mediaheight (md) {
+        .nav__title {
+            font-size: 30px !important;
+        }
+    }
+
+    @include mediaheight (lg) {
+        .nav__title {
+            font-size: 30px !important;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
